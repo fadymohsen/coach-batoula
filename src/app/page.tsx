@@ -144,7 +144,7 @@ export default function Home() {
           </motion.div>
 
           <div className="hidden lg:flex items-center gap-9 text-sm font-bold text-charcoal/65">
-            {[["#about","من أنا"],["#certs","شهاداتي"],["#plans","الباقات"],["#faq","الأسئلة"]].map(([href,label]) => (
+            {[["#about","من أنا"],["#certs","شهاداتي"],["/plans","الباقات"],["#faq","الأسئلة"]].map(([href,label]) => (
               <a key={href} href={href} className="relative group py-1">
                 {label}
                 <span className="absolute inset-x-0 bottom-0 h-0.5 bg-rose scale-x-0 group-hover:scale-x-100 transition-transform origin-right" />
@@ -192,7 +192,7 @@ export default function Home() {
             >
               <X size={20} className="text-charcoal" />
             </button>
-            {[["#about","من أنا"],["#certs","شهاداتي"],["#plans","الباقات"],["#faq","الأسئلة"]].map(([href,label]) => (
+            {[["#about","من أنا"],["#certs","شهاداتي"],["/plans","الباقات"],["#faq","الأسئلة"]].map(([href,label]) => (
               <a
                 key={href}
                 href={href}
@@ -418,57 +418,6 @@ export default function Home() {
               </motion.div>
             </motion.div>
           </div>
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════
-          CERTIFICATES
-      ═══════════════════════════════════════ */}
-      <section id="certs" className="section-padding bg-background">
-        <div className="max-w-7xl mx-auto px-6">
-          <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} className="text-center space-y-4 mb-14">
-            <span className="inline-block text-rose font-black tracking-widest text-xs uppercase px-4 py-2 rounded-full bg-rose-light border border-rose/15">
-              مؤهلات موثّقة
-            </span>
-            <h2 className="text-4xl lg:text-5xl font-black text-charcoal">شهادات معتمدة دولياً</h2>
-            <p className="text-charcoal/50 text-lg max-w-2xl mx-auto">
-              بتابع تطوير نفسي باستمرار وبحضر مؤتمرات دورية عشان أعطيكم الأفضل دائماً
-            </p>
-          </motion.div>
-
-          <motion.div
-            variants={staggerGrid} initial="hidden" whileInView="show" viewport={{ once: true }}
-            className="grid grid-cols-2 md:grid-cols-3 gap-5"
-          >
-            {CERTIFICATES.map((cert, idx) => (
-              <motion.div
-                key={idx} variants={staggerItem}
-                className="group relative rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-[400ms] aspect-[3/4] cursor-zoom-in"
-              >
-                <Image src={cert.img} alt={cert.title} fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
-                <div className="absolute inset-0 bg-gradient-to-t from-charcoal/80 via-charcoal/15 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-350" />
-                <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-3 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-350 text-right">
-                  <div className="text-white font-black text-sm leading-snug">{cert.title}</div>
-                  <div className="text-white/60 text-xs mt-1">{cert.sub}</div>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-
-          <motion.div
-            variants={staggerGrid} initial="hidden" whileInView="show" viewport={{ once: true }}
-            className="mt-6 grid sm:grid-cols-3 gap-5"
-          >
-            {[
-              { src: "/content/_.jpg (6).jpeg",  alt: "بتولة تحمل شهادة الدبلوم" },
-              { src: "/content/_.jpg (10).jpeg", alt: "بتولة مع شهاداتها" },
-              { src: "/content/_.jpg (11).jpeg", alt: "بتولة في INSEP PRO" },
-            ].map((p, i) => (
-              <motion.div key={i} variants={staggerItem} className="relative rounded-3xl overflow-hidden shadow-lg aspect-[4/3]">
-                <Image src={p.src} alt={p.alt} fill className="object-cover object-center hover:scale-105 transition-transform duration-500" />
-              </motion.div>
-            ))}
-          </motion.div>
         </div>
       </section>
 
@@ -821,6 +770,57 @@ export default function Home() {
       </section>
 
       {/* ═══════════════════════════════════════
+          CERTIFICATES
+      ═══════════════════════════════════════ */}
+      <section id="certs" className="section-padding bg-background">
+        <div className="max-w-7xl mx-auto px-6">
+          <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} className="text-center space-y-4 mb-14">
+            <span className="inline-block text-rose font-black tracking-widest text-xs uppercase px-4 py-2 rounded-full bg-rose-light border border-rose/15">
+              مؤهلات موثّقة
+            </span>
+            <h2 className="text-4xl lg:text-5xl font-black text-charcoal">شهادات معتمدة دولياً</h2>
+            <p className="text-charcoal/50 text-lg max-w-2xl mx-auto">
+              بتابع تطوير نفسي باستمرار وبحضر مؤتمرات دورية عشان أعطيكم الأفضل دائماً
+            </p>
+          </motion.div>
+
+          <motion.div
+            variants={staggerGrid} initial="hidden" whileInView="show" viewport={{ once: true }}
+            className="grid grid-cols-2 md:grid-cols-3 gap-5"
+          >
+            {CERTIFICATES.map((cert, idx) => (
+              <motion.div
+                key={idx} variants={staggerItem}
+                className="group relative rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-[400ms] aspect-[3/4] cursor-zoom-in"
+              >
+                <Image src={cert.img} alt={cert.title} fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-t from-charcoal/80 via-charcoal/15 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-350" />
+                <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-3 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-350 text-right">
+                  <div className="text-white font-black text-sm leading-snug">{cert.title}</div>
+                  <div className="text-white/60 text-xs mt-1">{cert.sub}</div>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+
+          <motion.div
+            variants={staggerGrid} initial="hidden" whileInView="show" viewport={{ once: true }}
+            className="mt-6 grid sm:grid-cols-3 gap-5"
+          >
+            {[
+              { src: "/content/_.jpg (6).jpeg",  alt: "بتولة تحمل شهادة الدبلوم" },
+              { src: "/content/_.jpg (10).jpeg", alt: "بتولة مع شهاداتها" },
+              { src: "/content/_.jpg (11).jpeg", alt: "بتولة في INSEP PRO" },
+            ].map((p, i) => (
+              <motion.div key={i} variants={staggerItem} className="relative rounded-3xl overflow-hidden shadow-lg aspect-[4/3]">
+                <Image src={p.src} alt={p.alt} fill className="object-cover object-center hover:scale-105 transition-transform duration-500" />
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════
           FAQ
       ═══════════════════════════════════════ */}
       <section id="faq" className="section-padding bg-white">
@@ -926,17 +926,9 @@ export default function Home() {
 
           <div className="pt-10 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-white/30">
             <p>© {new Date().getFullYear()} كوتش بتولة. جميع الحقوق محفوظة.</p>
-            <div className="flex items-center gap-2">
-              <span>صُنع بكل حب لدعم المرأة العربية</span>
-              <motion.span
-                initial={{ scale: 1 }}
-                whileInView={{ scale: [1, 1.5, 1, 1.3, 1] }}
-                transition={{ duration: 0.75, delay: 0.4 }}
-                viewport={{ once: true }}
-                className="inline-flex"
-              >
-                <Heart size={14} className="text-rose fill-rose" />
-              </motion.span>
+            <div className="flex items-center gap-1">
+              <span>Powered by</span>
+              <a href="https://veliq.co" target="_blank" rel="noopener" className="text-white/50 hover:text-rose transition-colors font-bold">VELIQ</a>
             </div>
           </div>
         </div>
