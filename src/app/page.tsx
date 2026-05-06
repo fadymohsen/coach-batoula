@@ -789,20 +789,20 @@ export default function Home() {
             </motion.div>
 
             {/* Plan 3 */}
-            <motion.div variants={staggerItem} className="premium-card flex flex-col bg-charcoal text-white border-white/5 shadow-2xl">
+            <motion.div variants={staggerItem} className="premium-card flex flex-col shadow-2xl">
               <div className="space-y-2 mb-7 text-right">
                 <span className="text-gold font-black tracking-widest text-xs uppercase">الرحلة الكاملة</span>
-                <h3 className="text-3xl font-black">سنة كاملة</h3>
+                <h3 className="text-3xl font-black text-charcoal">سنة كاملة</h3>
                 <div className="flex items-baseline justify-end gap-1">
                   <span className="text-4xl font-black text-gold">$299</span>
-                  <span className="text-white/30 text-sm">/ سنة</span>
+                  <span className="text-charcoal/40 text-sm">/ سنة</span>
                 </div>
                 <div className="text-xs font-bold text-gold/70 bg-gold/10 px-3 py-1.5 rounded-full inline-block">ليست حمية مؤقتة… رحلة للأبد</div>
               </div>
               <ul className="space-y-4 mb-8 flex-1">
                 {["اتصال شهري للمتابعة وتقييم التقدم","نظام غذائي مخصص ومتجدد بحسب المرحلة","تجديد النظام كل 15 يوم طوال العام","خطة خاصة لشهر رمضان المبارك","دعم مستمر لضمان استمرارية النتائج"].map((item,i)=>(
                   <li key={i} className="flex items-start gap-3 justify-end">
-                    <span className="text-white/60 text-sm font-semibold text-right leading-relaxed">{item}</span>
+                    <span className="text-charcoal/60 text-sm font-semibold text-right leading-relaxed">{item}</span>
                     <CheckCircle2 size={17} className="text-gold shrink-0 mt-0.5" />
                   </li>
                 ))}
