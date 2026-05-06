@@ -1,8 +1,11 @@
 import { NextResponse } from 'next/server';
 import prisma from '@/lib/prisma';
 
+export const dynamic = 'force-dynamic';
+
 export async function POST(request: Request) {
   try {
+
     const body = await request.json();
     const { customerName, customerEmail, customerPhone, paymentMethod, planId, receiptUrl } = body;
 
@@ -10,9 +13,6 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
     }
 
-    // Determine status based on payment method
-    // In a real app, CREDIT_CARD would be PENDING until Stripe webhook confirms
-    // But for this mockup, we'll set manual to PENDING and CC to COMPLETED or PENDING
     const status = paymentMethod === 'CREDIT_CARD' ? 'COMPLETED' : 'PENDING';
 
     const order = await prisma.order.create({
