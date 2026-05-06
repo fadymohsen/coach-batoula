@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Cairo } from "next/font/google";
 import "./globals.css";
+import { MotionConfig } from "framer-motion";
 
 const cairo = Cairo({
   variable: "--font-cairo",
@@ -11,7 +12,7 @@ const cairo = Cairo({
 export const metadata: Metadata = {
   title: "كوتش بتولة | Coach Batoula",
   description:
-    "كوتش بتولة - مدربة تنمية بشرية وتطوير ذات. ابدأي رحلتك نحو حياة أفضل مع كوتش بتولة.",
+    "كوتش بتولة - كوتش تغذية معتمدة ومدربة حياة. ابدأي رحلتك نحو نمط حياة صحي مع كوتش بتولة.",
   icons: {
     icon: "/og-image.jpg",
     apple: "/og-image.jpg",
@@ -19,15 +20,8 @@ export const metadata: Metadata = {
   openGraph: {
     title: "كوتش بتولة | Coach Batoula",
     description:
-      "كوتش بتولة - مدربة تنمية بشرية وتطوير ذات. ابدأي رحلتك نحو حياة أفضل مع كوتش بتولة.",
-    images: [
-      {
-        url: "/og-image.jpg",
-        width: 1200,
-        height: 1200,
-        alt: "كوتش بتولة",
-      },
-    ],
+      "كوتش بتولة - كوتش تغذية معتمدة ومدربة حياة. ابدأي رحلتك نحو نمط حياة صحي مع كوتش بتولة.",
+    images: [{ url: "/og-image.jpg", width: 1200, height: 1200, alt: "كوتش بتولة" }],
     locale: "ar_EG",
     type: "website",
   },
@@ -35,20 +29,19 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "كوتش بتولة | Coach Batoula",
     description:
-      "كوتش بتولة - مدربة تنمية بشرية وتطوير ذات. ابدأي رحلتك نحو حياة أفضل مع كوتش بتولة.",
+      "كوتش بتولة - كوتش تغذية معتمدة ومدربة حياة. ابدأي رحلتك نحو نمط حياة صحي مع كوتش بتولة.",
     images: ["/og-image.jpg"],
   },
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="ar" dir="rtl" className={`${cairo.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col font-[family-name:var(--font-cairo)]">
-        {children}
+        {/* reducedMotion="user" respects system prefers-reduced-motion */}
+        <MotionConfig reducedMotion="user">{children}</MotionConfig>
       </body>
     </html>
   );
