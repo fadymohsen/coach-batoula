@@ -13,7 +13,7 @@ export default function Navbar() {
     <>
       <nav className="fixed top-2 inset-x-0 z-50 glass mx-auto max-w-[95%] rounded-full shadow-lg">
         <div className="max-w-7xl mx-auto px-6 h-[72px] flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-3">
+          <Link href="/" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="flex items-center gap-3">
             <div className="relative w-10 h-10 rounded-full overflow-hidden border-2 border-rose">
               <Image src="/coach-batoula-logo.jpg" alt="كوتش بتولة" fill className="object-cover" />
             </div>

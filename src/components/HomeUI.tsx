@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useRef, useEffect, useState } from "react";
 import { motion, useScroll, useSpring, useInView } from "framer-motion";
 import {
-  Heart, Star, ShieldCheck, Zap, CheckCircle2, ArrowRight,
+  Heart, Star, ShieldCheck, Zap, CheckCircle2, ArrowRight, Phone,
   ChevronDown, BookOpen, Award, GraduationCap, TrendingDown, ChevronLeft, ChevronRight,
 } from "lucide-react";
 import { getContent } from "@/lib/cms";
@@ -263,6 +263,82 @@ export default function HomeUI({ content }: { content: Record<string, string> })
         </div>
       </section>
 
+      {/* ── RESULTS SECTION ───────────────────── */}
+      <section className="py-24 bg-white relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            {/* Before/After Image */}
+            <motion.div variants={fadeUp} initial="hidden" whileInView="show" className="relative order-1">
+              <div className="relative rounded-[40px] overflow-hidden shadow-2xl">
+                <Image
+                  src="/content/Picsart_26-05-02_11-03-52-910.jpg.jpeg"
+                  alt="نتائج قبل وبعد"
+                  width={660}
+                  height={660}
+                  className="w-full h-auto object-cover"
+                  unoptimized
+                />
+                <div className="absolute top-5 right-5 bg-white/90 backdrop-blur-sm px-4 py-1.5 rounded-full text-sm font-black text-charcoal shadow-md">قبل</div>
+                <div className="absolute top-5 left-5 bg-white/90 backdrop-blur-sm px-4 py-1.5 rounded-full text-sm font-black text-charcoal shadow-md">بعد</div>
+              </div>
+            </motion.div>
+
+            {/* Content */}
+            <motion.div
+              initial="hidden" whileInView="show"
+              variants={{ hidden: {}, show: { transition: { staggerChildren: 0.12 } } }}
+              className="space-y-8 text-right order-2"
+            >
+              <motion.div variants={fadeUp} className="space-y-4">
+                <span className="inline-block border border-rose/30 text-rose text-sm font-black px-5 py-1.5 rounded-full">نتائج حقيقية</span>
+                <h2 className="text-4xl lg:text-5xl font-black text-charcoal leading-tight">
+                  نتائج مو بس
+                  <br />
+                  <span className="text-rose">بالأرقام... بالصور</span>
+                </h2>
+                <div className="w-12 h-1.5 bg-rose rounded-full ms-auto" />
+              </motion.div>
+
+              <motion.p variants={fadeUp} className="text-base font-bold text-charcoal/60 leading-relaxed max-w-lg ms-auto">
+                ميزان الصبية وأطباقها — تعبها وربي يعطيها ألف عافية. هي شاطرة، حابة الرحلة، مستمتعة فيها. تعرف مصلحتها وعم تحاول وتستمر وتصبر لتشوف أفضل النتائج.
+              </motion.p>
+
+              <motion.div variants={fadeUp} className="grid grid-cols-3 gap-4">
+                {[
+                  { value: "٤ – ٦ كيلو", label: "بالشهر الواحد" },
+                  { value: "+500", label: "عميلة نجحت" },
+                  { value: "+100", label: "نجاح الشهرين الأخيرين" },
+                ].map((stat, i) => (
+                  <div key={i} className="bg-background rounded-2xl p-5 text-center">
+                    <div className="text-xl lg:text-2xl font-black text-charcoal">{stat.value}</div>
+                    <div className="text-xs font-bold text-charcoal/40 mt-1">{stat.label}</div>
+                  </div>
+                ))}
+              </motion.div>
+
+              <motion.div variants={fadeUp} className="bg-[#fdf6ef] rounded-[28px] p-7 relative">
+                <span className="absolute top-4 end-5 text-5xl font-black text-rose/15 leading-none select-none">&ldquo;</span>
+                <p className="text-charcoal/75 font-bold leading-relaxed text-sm pt-4">
+                  &ldquo;بدي أنزل بس 5 كيلو وكتيرررر صعب التزم وصعب ينزلو، بس مع بتولة مافي شي مستحيل — نتيجة شهرين مرونة ووعي ونظام مريح بدون حرمان.&rdquo;
+                </p>
+              </motion.div>
+
+              <motion.div variants={fadeUp}>
+                <a
+                  href="https://wa.me/"
+                  target="_blank"
+                  rel="noopener"
+                  className="btn-shine inline-flex items-center gap-3 bg-charcoal text-white px-10 py-4 rounded-2xl font-black text-base shadow-xl hover:bg-charcoal-dark transition-all"
+                >
+                  <Phone size={18} />
+                  ابدأي رحلتك اليوم
+                </a>
+              </motion.div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
       {/* ── ABOUT SECTION ───────────────────── */}
       <section id="about" className="py-16 bg-white relative overflow-hidden">
         <div className="max-w-6xl mx-auto px-6">
@@ -389,14 +465,14 @@ export default function HomeUI({ content }: { content: Record<string, string> })
             </motion.div>
 
             {/* Plan 3 */}
-            <motion.div variants={staggerItem} className="premium-card flex flex-col text-white" style={{ background: "var(--charcoal)" }}>
+            <motion.div variants={staggerItem} className="premium-card flex flex-col">
               <div className="space-y-2 mb-7 text-right">
-                <h3 className="text-3xl font-black text-gold">الرحلة</h3>
+                <h3 className="text-3xl font-black text-gold">الرحلة الكاملة</h3>
                 <div className="flex items-baseline justify-start gap-1">
                   <span className="text-4xl font-black text-gold">$299</span>
-                  <span className="text-xs text-white/40 font-bold">/ سنة كاملة</span>
+                  <span className="text-xs text-charcoal/40 font-bold">/ سنة كاملة</span>
                 </div>
-                <p className="text-sm text-white/60 font-bold">باقة سنوية شاملة لبناء نمط حياة صحي ثابت ونتائج طويلة الأمد.</p>
+                <p className="text-sm text-charcoal/60 font-bold">ليست حمية مؤقتة… رحلة للأبد</p>
               </div>
               <ul className="space-y-4 mb-8 flex-1 text-right">
                 {[
@@ -407,7 +483,7 @@ export default function HomeUI({ content }: { content: Record<string, string> })
                   "دعم مستمر لضمان استمرارية النتائج طوال العام."
                 ].map((item,i)=>(
                   <li key={i} className="flex items-start gap-3 justify-end">
-                    <span className="flex-1 text-white/60 text-sm font-semibold leading-relaxed">{item}</span>
+                    <span className="flex-1 text-charcoal/60 text-sm font-semibold leading-relaxed">{item}</span>
                     <CheckCircle2 size={17} className="text-gold shrink-0 mt-0.5" />
                   </li>
                 ))}
@@ -422,19 +498,6 @@ export default function HomeUI({ content }: { content: Record<string, string> })
           </motion.div>
         </div>
       </section>
-
-      {/* ── CERTIFICATES ───────────────────── */}
-      <section id="certs" className="py-24 bg-background">
-        <div className="max-w-7xl mx-auto px-6">
-          <motion.div variants={fadeUp} initial="hidden" whileInView="show" className="text-center space-y-4 mb-14">
-            <h2 className="text-4xl lg:text-5xl font-black text-charcoal">شهادات معتمدة دولياً</h2>
-            <p className="text-charcoal/50 text-lg">بتابع تطوير نفسي باستمرار عشان أعطيكم الأفضل دائماً</p>
-          </motion.div>
-          <CertCarousel />
-        </div>
-      </section>
-
-      <Wave bg="var(--background)" fill="var(--charcoal)" />
 
       {/* ── MISSION ───────────────────────────── */}
       <section id="mission" className="bg-charcoal text-white py-24 relative overflow-hidden">
@@ -509,38 +572,77 @@ export default function HomeUI({ content }: { content: Record<string, string> })
 
       {/* ── TESTIMONIALS ───────────────────── */}
       <section className="py-24 bg-background">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="flex items-baseline justify-between mb-14 border-b border-charcoal/8 pb-6">
-            <h2 className="text-3xl font-black text-charcoal">كلام الصبايا</h2>
-            <span className="text-xs font-bold text-charcoal/30 tracking-wide">+500 قصة نجاح</span>
-          </div>
-          <div className="grid lg:grid-cols-5 gap-6 text-right items-start">
-            {/* Featured large quote */}
-            <div className="lg:col-span-3 bg-charcoal text-white p-10 rounded-[40px] flex flex-col justify-between min-h-[280px]">
-              <p className="text-xl lg:text-2xl font-bold leading-relaxed text-white/90 flex-1">
-                &ldquo;بدي انزل بس 5 كيلو وكتيرررر صعب التزم وصعب ينزلو — بس مع بتولة مافي شي مستحيل. شهرين مرونة ووعي ونظام مريح بدون حرمان.&rdquo;
-              </p>
-              <div className="mt-8 flex items-center justify-between border-t border-white/10 pt-6">
-                <span className="text-rose text-xs font-black px-3 py-1 rounded-full border border-rose/30">باقة 3 شهور</span>
-                <span className="font-black text-white/60 text-sm">صبية بطلة</span>
+        <div className="max-w-5xl mx-auto px-6 text-center">
+          <motion.div variants={fadeUp} initial="hidden" whileInView="show" className="space-y-4 mb-16">
+            <span className="inline-block bg-rose/10 text-rose text-sm font-black px-5 py-1.5 rounded-full">آراء المتدربات</span>
+            <h2 className="text-4xl lg:text-5xl font-black text-charcoal">ماذا قالت الصبايا؟</h2>
+            <p className="text-charcoal/50 text-lg font-bold">نتائج حقيقية من متدربات حقيقيات</p>
+          </motion.div>
+
+          {/* Featured testimonial */}
+          <motion.div variants={fadeUp} initial="hidden" whileInView="show" className="bg-white rounded-[32px] p-10 lg:p-12 mb-8 text-right border border-charcoal/5">
+            <div className="flex gap-1 mb-6 justify-end">
+              {[...Array(5)].map((_, i) => <Star key={i} size={20} className="fill-gold text-gold" />)}
+            </div>
+            <p className="text-xl lg:text-2xl font-bold text-charcoal/80 leading-relaxed mb-8">
+              &ldquo;كنت يأسانة من كل دايت جربته. بتولة عطتني نظام ما حسيت فيه بأي حرمان، وأول مرة بحياتي أثبت وزني بعد ما نزلت&rdquo;
+            </p>
+            <div className="flex items-center justify-between">
+              <span className="text-rose text-sm font-black px-4 py-1.5 rounded-full border border-rose/30">-8 كيلو في 6 أسابيع</span>
+              <div className="text-right">
+                <div className="font-black text-charcoal text-base">سارة م.</div>
+                <div className="text-rose text-xs font-bold">مقاومة أنسولين</div>
               </div>
             </div>
-            {/* Two smaller quotes stacked */}
-            <div className="lg:col-span-2 flex flex-col gap-6">
-              {[
-                { name: "متدربة شاطرة", quote: "تعبها وربي يعطيها الف عافية — هي شاطرة، حابة الرحلة، مستمتعة فيا، بتعرف مصلحتا وعم تحاول وتستمر وتصبر.", tag: "الرحلة السنوية" },
-                { name: "رفيقة الرحلة", quote: "متابعة ٣٠ يوم كفيلة نصير رفقة. الحمدالله كسبت اكتر من 100 رفيقة الشهرين الماضيين، فخورة بلنتائج وبردود الصبايا.", tag: "باقة شهر واحد" },
-              ].map((t, i) => (
-                <div key={i} className="bg-white p-7 rounded-[32px] border border-charcoal/5 flex flex-col gap-4">
-                  <p className="text-charcoal/65 text-sm leading-relaxed flex-1">&ldquo;{t.quote}&rdquo;</p>
-                  <div className="flex items-center justify-between pt-3 border-t border-charcoal/5">
-                    <span className="text-[10px] text-rose font-black uppercase tracking-wide">{t.tag}</span>
-                    <span className="font-black text-charcoal text-xs">{t.name}</span>
+          </motion.div>
+
+          {/* Two smaller testimonials */}
+          <motion.div variants={staggerGrid} initial="hidden" whileInView="show" className="grid md:grid-cols-2 gap-6">
+            {[
+              {
+                name: "نور خ.",
+                condition: "تكيس مبايض",
+                quote: "عندي تكيس مبايض وما كنت أتوقع نتيجة بهالسرعة. بتولة فهمت حالتي الصحية وصممت نظام خاص فيني، والنتائج تحكي.",
+                result: "-12 كيلو في 3 شهور",
+              },
+              {
+                name: "فاطمة ع.",
+                condition: "أم مرضعة",
+                quote: "كنت خايفة لأني مرضعة، بس بتولة ضمنت احتياجاتي وبنتي. النظام كان مريح والوزن نزل وأنا مبسوطة ومو تعبانة.",
+                result: "-5 كيلو في شهر",
+              },
+            ].map((t, i) => (
+              <motion.div key={i} variants={staggerItem} className="bg-white rounded-[28px] p-8 text-right border border-charcoal/5">
+                <div className="flex items-center justify-between mb-5">
+                  <div className="flex gap-0.5">
+                    {[...Array(5)].map((_, j) => <Star key={j} size={14} className="fill-gold text-gold" />)}
+                  </div>
+                  <div>
+                    <div className="font-black text-charcoal text-sm">{t.name}</div>
+                    <div className="text-rose text-xs font-bold">{t.condition}</div>
                   </div>
                 </div>
-              ))}
-            </div>
-          </div>
+                <p className="text-charcoal/60 text-sm leading-relaxed mb-6">
+                  &ldquo;{t.quote}&rdquo;
+                </p>
+                <div className="flex items-center justify-between pt-4 border-t border-charcoal/5">
+                  <span className="text-rose text-xs font-black px-3 py-1 rounded-full bg-rose/10">{t.result}</span>
+                  <span className="text-charcoal/40 text-xs font-bold">نتيجة موثقة</span>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ── CERTIFICATES ───────────────────── */}
+      <section id="certs" className="py-24 bg-background">
+        <div className="max-w-7xl mx-auto px-6">
+          <motion.div variants={fadeUp} initial="hidden" whileInView="show" className="text-center space-y-4 mb-14">
+            <h2 className="text-4xl lg:text-5xl font-black text-charcoal">شهادات معتمدة دولياً</h2>
+            <p className="text-charcoal/50 text-lg">بتابع تطوير نفسي باستمرار عشان أعطيكم الأفضل دائماً</p>
+          </motion.div>
+          <CertCarousel />
         </div>
       </section>
 
