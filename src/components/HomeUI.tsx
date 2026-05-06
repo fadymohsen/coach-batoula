@@ -173,7 +173,7 @@ export default function HomeUI({ content }: { content: Record<string, string> })
         href="https://wa.me/"
         target="_blank"
         rel="noopener"
-        className="pulse-ring fixed bottom-8 right-6 z-50 w-14 h-14 rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-2xl shadow-green-500/30"
+        className="pulse-ring fixed bottom-8 right-6 z-50 w-14 h-14 rounded-full bg-rose text-white flex items-center justify-center shadow-2xl shadow-rose/30"
         initial={{ scale: 0, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ delay: 2.2, type: "spring", stiffness: 220, damping: 18 }}
