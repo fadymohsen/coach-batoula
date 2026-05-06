@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Cairo } from "next/font/google";
 import "./globals.css";
-import { MotionConfig } from "framer-motion";
+import { FramerProviders } from "@/components/FramerProviders";
 
 const cairo = Cairo({
   variable: "--font-cairo",
@@ -10,7 +10,9 @@ const cairo = Cairo({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://coach-batoula.vercel.app"), // Replace with actual production URL when ready
   title: "كوتش بتولة | Coach Batoula",
+
   description:
     "كوتش بتولة - كوتش تغذية معتمدة ومدربة حياة. ابدأي رحلتك نحو نمط حياة صحي مع كوتش بتولة.",
   icons: {
@@ -41,7 +43,7 @@ export default function RootLayout({
     <html lang="ar" dir="rtl" className={`${cairo.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col font-[family-name:var(--font-cairo)]">
         {/* reducedMotion="user" respects system prefers-reduced-motion */}
-        <MotionConfig reducedMotion="user">{children}</MotionConfig>
+        <FramerProviders>{children}</FramerProviders>
       </body>
     </html>
   );

@@ -32,6 +32,9 @@ body {
   color: var(--foreground);
   font-family: var(--font-cairo), Arial, Helvetica, sans-serif;
   overflow-x: hidden;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 html {
@@ -49,14 +52,16 @@ html {
   background: rgba(255, 255, 255, 0.75);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
 }
 
 .glass-dark {
-  background: rgba(0, 0, 0, 0.22);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(255, 255, 255, 0.07);
+  background: rgba(44, 62, 80, 0.25);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
 .premium-card {
@@ -135,6 +140,10 @@ html {
   animation: pulse-ring 2s ease-out infinite;
   z-index: -1;
 }
+
+/* ─── No-scrollbar (carousel) ──────────────── */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
 /* ─── Global focus rings (WCAG 2.1 AA §1.4.11) ─── */
 a:focus-visible,
