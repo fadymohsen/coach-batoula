@@ -16,8 +16,11 @@ export const metadata: Metadata = {
   description:
     "كوتش بتولة - كوتش تغذية معتمدة ومدربة حياة. ابدأي رحلتك نحو نمط حياة صحي مع كوتش بتولة.",
   icons: {
-    icon: "/og-image.jpg",
-    apple: "/og-image.jpg",
+    icon: [
+      { url: "/favicon.ico", sizes: "32x32" },
+      { url: "/icon.png", sizes: "192x192", type: "image/png" },
+    ],
+    apple: "/apple-icon.png",
   },
   openGraph: {
     title: "كوتش بتولة | Coach Batoula",
