@@ -1,4 +1,5 @@
 import prisma from "@/lib/prisma";
+import SeedButton from "@/components/admin/SeedButton";
 
 export const metadata = {
   title: "لوحة التحكم | كوتش بتولة",
@@ -53,6 +54,8 @@ export default async function AdminDashboardPage() {
           <p className="text-3xl font-extrabold text-[#b48a66]">{stats.totalPlans}</p>
         </div>
       </div>
+
+      <SeedButton />
     </div>
   );
 }

@@ -131,17 +131,19 @@ export default function Home() {
       {/* ── Navbar ───────────────────────────── */}
       <nav className="fixed top-0 w-full z-50 glass" style={{ top: 3 }}>
         <div className="max-w-7xl mx-auto px-5 h-[72px] flex items-center justify-between">
-          <motion.div
+          <motion.a
+            href="/"
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
-            className="flex items-center gap-3"
+            className="flex items-center gap-3 cursor-pointer"
           >
             <div className="relative w-10 h-10 rounded-full overflow-hidden border-2 border-rose">
               <Image src="/coach-batoula-logo.jpg" alt="كوتش بتولة" fill className="object-cover" />
             </div>
             <span className="text-xl font-black text-charcoal">كوتش بتولة</span>
-          </motion.div>
+          </motion.a>
 
           <div className="hidden lg:flex items-center gap-9 text-sm font-bold text-charcoal/65">
             {[["#about","من أنا"],["#certs","شهاداتي"],["/plans","الباقات"],["#faq","الأسئلة"]].map(([href,label]) => (
