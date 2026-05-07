@@ -928,7 +928,7 @@ export default function Home() {
 
           <div className="pt-10 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-white/30">
             <p>© {new Date().getFullYear()} كوتش بتولة. جميع الحقوق محفوظة.</p>
-            <div className="flex items-center gap-1">
+            <div className="flex items-center gap-1" dir="ltr">
               <span>Powered by</span>
               <a href="https://veliq.co" target="_blank" rel="noopener" className="text-white/50 hover:text-rose transition-colors font-bold">VELIQ</a>
             </div>
