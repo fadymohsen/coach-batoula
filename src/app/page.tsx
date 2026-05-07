@@ -296,7 +296,7 @@ export default function Home() {
           >
             <div className="absolute inset-0 rounded-[44px] bg-gradient-to-br from-rose/30 via-transparent to-gold/30 blur-3xl scale-90 pointer-events-none" />
             <div className="relative rounded-[44px] overflow-hidden shadow-2xl bg-[#0b1018] w-full max-w-[460px] aspect-[3/4]">
-              <Image src="/coach-batoula.jpg" alt="كوتش بتولة" fill className="object-cover object-top" priority />
+              <Image src="/coach-batoula.jpeg" alt="كوتش بتولة" fill className="object-cover object-top" priority />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0b1018]/65 via-transparent to-transparent" />
               <div className="absolute bottom-5 left-5 right-5 glass p-4 rounded-2xl">
                 <div className="flex items-center gap-3">
